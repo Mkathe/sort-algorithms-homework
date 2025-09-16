@@ -118,5 +118,8 @@ func BuildChart(results map[string]float64) {
 
 	f, _ := os.Create("sorting_results.html")
 	defer f.Close()
-	bar.Render(f)
+	err := bar.Render(f)
+	if err != nil {
+		panic(err)
+	}
 }
